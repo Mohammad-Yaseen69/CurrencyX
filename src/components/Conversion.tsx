@@ -15,10 +15,10 @@ const Conversion = () => {
     const [from, setFrom] = useState("USD");
     const [to, setTo] = useState("PKR");
     const [amount, setAmount] = useState(1.0);
-    const { data, refetch, isLoading, error, isError,isFetching } = useQuery({
+    const { data, refetch, isLoading, error, isError, isFetching } = useQuery({
         queryKey: ["getExchange"],
         queryFn: () => makeRequest(from),
-        staleTime: 3600000
+        staleTime: 3600000,
     })
 
     const rate = useMemo(() => {
@@ -68,7 +68,7 @@ const Conversion = () => {
                 {
                     !isError &&
                     <p>
-                        Converted Amount: <span className="text-green-400"> {(rate && from === data?.data?.base_code) ? formatCurrency(rate, to) : "Press button for exchange rate"} </span>
+                        Converted Amount: <span className="text-green-400"> {(!isLoading && !isFetching) ? (rate && from === data?.data?.base_code) ? formatCurrency(rate, to) : "Press button for exchange rate" : "Fetching Rates..."} </span>
                     </p>
                 }
             </div>
