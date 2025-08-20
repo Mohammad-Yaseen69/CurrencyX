@@ -1,9 +1,9 @@
-import TQuery from "./components/TQuery"
+import Conversion from "./components/Conversion"
 
 const App = () => {
   return (
     <div className="w-full min-h-screen bg-zinc-950 flex items-center justify-center">
-      <TQuery />
+      <Conversion />
     </div>
   )
 }

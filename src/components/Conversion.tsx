@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo, useState } from "react";
 import { ArrowLeftRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
@@ -8,12 +7,11 @@ import Input from "../elements/Input";
 import { formatCurrency } from "../utils/currencyFormat";
 
 
-const apikey = "589b0b20479f3202ae57c879"
 
 const makeRequest = async (from: string) => {
-    return axios.get(`https://v6.exchangerate-api.com/v6/${apikey}/latest/${from}`)
+    return axios.get(`https://v6.exchangerate-api.com/v6/${import.meta.env.VITE_API_KEY}/latest/${from}`)
 }
-const TQuery = () => {
+const Conversion = () => {
     const [from, setFrom] = useState("USD");
     const [to, setTo] = useState("PKR");
     const [amount, setAmount] = useState(1.0);
@@ -78,4 +76,4 @@ const TQuery = () => {
     );
 };
 
-export default TQuery;
+export default Conversion;
