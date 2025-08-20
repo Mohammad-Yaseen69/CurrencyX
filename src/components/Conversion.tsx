@@ -26,7 +26,7 @@ const Conversion = () => {
     }, [data, to, amount])
 
     return (
-        <div className="border-[1px] text-white font-[600] flex flex-col text-center items-stretch min-w-[500px] border-zinc-700 p-5 rounded-lg bg-zinc-900  max-sm:w-[95%] max-sm:min-h-[70vh] max-sm:justify-between">
+        <div className="border-[1px] text-white font-[600] flex flex-col text-center items-stretch min-w-[500px] border-zinc-700 p-5 rounded-lg bg-zinc-900  max-sm:min-w-[95%] max-sm:min-h-[70vh] max-sm:justify-between">
             <h1 className="text-[30px] mb-5">Currency Converter</h1>
 
             <div>
