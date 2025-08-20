@@ -68,7 +68,7 @@ const Conversion = () => {
                 {
                     !isError &&
                     <p>
-                        Converted Amount: <span className="text-green-400"> {(rate && from === data?.data?.base_code) ? formatCurrency(rate, to) : "---"} </span>
+                        Converted Amount: <span className="text-green-400"> {(rate && from === data?.data?.base_code) ? formatCurrency(rate, to) : "Press button for exchange rate"} </span>
                     </p>
                 }
             </div>
