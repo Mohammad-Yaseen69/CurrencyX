@@ -15,7 +15,7 @@ const Conversion = () => {
     const [from, setFrom] = useState("USD");
     const [to, setTo] = useState("PKR");
     const [amount, setAmount] = useState(1.0);
-    const { data, refetch, isLoading, error, isError, } = useQuery({
+    const { data, refetch, isLoading, error, isError,isFetching } = useQuery({
         queryKey: ["getExchange"],
         queryFn: () => makeRequest(from),
         staleTime: 3600000
@@ -54,12 +54,12 @@ const Conversion = () => {
                     <CurrencySelector setter={setTo} title="To" val={to} />
                 </div>
 
-                <button disabled={isLoading} onClick={() => {
+                <button disabled={(isLoading || isFetching)} onClick={() => {
                     if (from !== data?.data?.base_code) {
                         refetch()
                     }
                 }} className="w-full mt-3 bg-blue-600 hover:bg-blue-700 transition-colors p-2 rounded-lg">
-                    {isLoading ? "Loading..." : "Convert"}
+                    {isLoading || isFetching ? "Loading..." : "Convert"}
                 </button>
             </div>
 
